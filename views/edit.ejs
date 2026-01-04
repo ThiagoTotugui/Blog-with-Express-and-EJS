@@ -1,0 +1,22 @@
+<!-- Header aqui -->
+<%- include('partials/header.ejs'); -%>
+<!-- Corpo principal da página "/" aqui -->
+<h1>Edite aqui seu post</h1>
+<form action="/edit/<%= post.id%>" method="POST">
+  <input
+    type="text"
+    name="newPostTitle"
+    placeholder="Titulo do post."
+    value="<%= post.title %>"
+  />
+  <input
+    type="text"
+    name="newPostContent"
+    placeholder="Escreva aqui seu post."
+    value="<%= post.content %>"
+  />
+
+  <button type="submit">Enviar edição</button>
+</form>
+<!-- Footer aqui -->
+<%- include('partials/footer.ejs'); -%>

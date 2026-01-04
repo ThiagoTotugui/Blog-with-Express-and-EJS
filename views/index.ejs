@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+<section id="banner">
+  <header>
+    <h2>Bem vindo ao meu Blog</h2>
+    <p>Posts criados dinamicamente com Express & EJS</p>
+  </header>
+</section>
+
+<% if (posts.length > 0) { %> <%- include("partials/carousel.ejs") %> <% } %>
+
+<div class="wrapper style2">
+  <section class="container special">
+    <% posts.forEach(post => { %>
+    <article class="box post">
+      <header>
+        <h2><%= post.title %></h2>
+      </header>
+
+      <p><%= post.content %></p>
+
+      <footer>
+        <ul class="actions">
+          <li>
+            <a href="/edit/<%= post.id %>" class="button">Edit</a>
+          </li>
+          <li>
+            <form action="/delete/<%= post.id %>" method="POST">
+              <button class="button">Delete</button>
+            </form>
+          </li>
+        </ul>
+      </footer>
+    </article>
+
+    <% }) %>
+  </section>
+</div>
+
+<%- include("partials/footer.ejs") %>

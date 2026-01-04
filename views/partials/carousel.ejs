@@ -1,0 +1,28 @@
+<% if (posts.length > 0) { %>
+<section class="carousel">
+  <div class="reel">
+    <% posts.forEach(post => { %>
+    <article>
+      <header>
+        <h3><%= post.title %></h3>
+      </header>
+
+      <p>
+        <%= post.content.length > 35 ? post.content.substring(0, 35) + "..." :
+        post.content %>
+      </p>
+
+      <a href="/edit/<%= post.id %>" class="button">Editar</a>
+
+      <form
+        action="/delete/<%= post.id %>"
+        method="POST"
+        style="margin-top: 0.5em"
+      >
+        <button class="button">Delete</button>
+      </form>
+    </article>
+    <% }) %>
+  </div>
+</section>
+<% } %>
